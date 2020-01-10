@@ -29,7 +29,7 @@
 					<td><c:out value="${student.age}"></c:out></td>
 					<td><c:out value="${student.partTime}"></c:out></td>
 					<td><c:out value="${student.gender}"></c:out></td>
-					<td><a href="updatestudent?studentId=${student.id}">update me</a></td>
+					<td><a href="editstudent?studentId=${student.id}">update me!</a></td>
 					<td><a href="deletestudent?studentId=${student.id}">delete me</a></td>
 				</tr>
 			</c:forEach>

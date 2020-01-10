@@ -65,14 +65,21 @@ public class StudentController {
 		return "";
 	}
 	
-	@RequestMapping(value = "updatestudent")
-	public String updateStudent(@RequestParam("studentId") int studentId) {
-//		if(service.addStudent(std))
-//			return "redirect:/students/getstudents";
-//		else {
-//			return "ErrorPage";
-//		}
-		return "";
+	@RequestMapping(value = "editstudent")
+	public ModelAndView editstudent(@RequestParam("studentId") int studentId) {
+		ModelAndView mv = new ModelAndView("update-student");
+		Student fetchedStudent = service.getStudentById(studentId);
+		mv.addObject("editedstudent", fetchedStudent);
+		return mv;
+	}
+	
+	@RequestMapping(value = "updateStudent")
+	public String updateStudent(@ModelAttribute("student") Student std) {
+		if (service.updateStudent(std)) {
+			return "redirect:/students/getstudents";
+		} else {
+			return "ErrorPage";
+		}
 	}
 	
 }
