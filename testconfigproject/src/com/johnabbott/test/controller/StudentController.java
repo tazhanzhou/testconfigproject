@@ -67,7 +67,7 @@ public class StudentController {
 	
 	@RequestMapping(value = "editstudent")
 	public ModelAndView editstudent(@RequestParam("studentId") int studentId) {
-		ModelAndView mv = new ModelAndView("update-student");
+		ModelAndView mv = new ModelAndView("update-student"); //update student is connecting to update-student-jsp webpage
 		Student fetchedStudent = service.getStudentById(studentId);
 		mv.addObject("editedstudent", fetchedStudent);
 		return mv;
